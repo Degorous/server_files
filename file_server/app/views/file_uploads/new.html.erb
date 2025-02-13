@@ -1,0 +1,6 @@
+<h1> Upload de Arquivo </h1>
+
+<%= form_with model: @archive, url: file_uploads_path, local: true, multipart: true do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit "Upload" %>
+<% end %>

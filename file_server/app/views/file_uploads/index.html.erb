@@ -1,0 +1,8 @@
+<%= link_to "Novo Upload", new_file_upload_path %>
+
+<% @archives.each do |file| %>
+  <p>
+    <%= link_to file.name, file_upload_path(file) %>
+    <%= link_to 'Deletar', file_upload_path(file), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja deletar?'} %>
+  </p>
+<% end %>
