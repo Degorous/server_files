@@ -1,9 +1,9 @@
 module FileResourcesHelper
   def render_file(file, options = {})
     if image?(file)
-      image_tag(file, size: "200x200")
+      image_tag(file, options)
     elsif video?(file)
-      video_tag(file, controls: true, size: "200x200")
+      video_tag(file, {**options, controls: true})
     else
       link_to "Download", file
     end
