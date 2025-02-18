@@ -1,3 +1,4 @@
 <h1><%= @archive.name %></h1>
+<%= render_file(@archive.file)%>
 <%= link_to 'Baixar', rails_blob_url(@archive.file), download: @archive.name %>
 <%= link_to 'Voltar', file_uploads_path %>
