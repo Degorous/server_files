@@ -1,8 +1,14 @@
 <%= link_to "Novo Upload", new_file_upload_path %>
 
 <% @archives.each do |file| %>
-  <p>
+  <div>
     <%= link_to file.name, file_upload_path(file) %>
-    <%= link_to 'Deletar', file_upload_path(file), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja deletar?'} %>
-  </p>
+    <div>
+      <%= render_file(file.file)%>
+    </div>
+    <div>
+      <%= link_to 'Baixar', rails_blob_url(file.file), download: file.name %>
+      <%= link_to 'Deletar', file_upload_path(file), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja deletar?'} %>
+    </div>
+  </div>
 <% end %>

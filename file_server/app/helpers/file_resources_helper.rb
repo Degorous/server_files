@@ -1,11 +1,11 @@
 module FileResourcesHelper
-  def render_file(file)
+  def render_file(file, options = {})
     if image?(file)
-      image_tag(file, class: "img-fluid")
+      image_tag(file, size: "200x200")
     elsif video?(file)
-      video_tag(file, controls: true, class: "video-fluid")
+      video_tag(file, controls: true, size: "200x200")
     else
-      link_to "Download", file, class: "btn btn-primary"
+      link_to "Download", file
     end
   end
 
