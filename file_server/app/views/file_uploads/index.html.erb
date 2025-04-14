@@ -1,15 +1,16 @@
-<%= link_to "Novo Upload", new_file_upload_path %>
+<div class="file_upload_index">
+  <div class="files">
+    <% @archives.each do |file| %>
+        <div class="archive_card">
+          <%= link_to file.name, file_upload_path(file), class: 'link' %>
+          <%= render_file(file.file, class: 'image')%>
 
-<% @archives.each do |file| %>
-  <div>
-    <%= link_to file.name, file_upload_path(file) %>
-    <div>
-      <%= render_file(file.file, size: "200x200")%>
-    </div>
-    <div>
-      <%= link_to 'Baixar', rails_blob_url(file.file), download: file.name %>
-      <%= link_to 'Editar', edit_file_upload_path(file) %>
-      <%= link_to 'Deletar', file_upload_path(file), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja deletar?'} %>
-    </div>
+          <div class="archive_buttons">
+            <%= link_to 'Baixar', rails_blob_url(file.file), download: file.name, class: 'button' %>
+            <%= link_to 'Editar', edit_file_upload_path(file), class: 'button' %>
+            <%= link_to 'Deletar', file_upload_path(file), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja deletar?'}, class: 'button' %>
+          </div>
+        </div>
+    <% end %>
   </div>
-<% end %>
+</div>

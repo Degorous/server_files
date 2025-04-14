@@ -22,8 +22,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="body">
     <main>
+      <nav class="nav_bar" >
+        <%= link_to file_uploads_path do %>
+          <%= image_tag 'fu.png', class: 'logo' %>
+        <%end%>
+        <%= link_to "Novo Upload", new_file_upload_path, class:'new_upload' %>
+      </nav>
       <%= render 'layouts/flash' %>
       <%= yield %>
     </main>

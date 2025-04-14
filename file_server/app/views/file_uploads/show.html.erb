@@ -1,5 +1,14 @@
-<h1><%= @archive.name %></h1>
-<%= render_file(@archive.file)%>
-<%= link_to 'Baixar', rails_blob_url(@archive.file), download: @archive.name %>
-<%= link_to 'Editar', edit_file_upload_path(@archive) %>
-<%= link_to 'Voltar', file_uploads_path %>
+<div class="container">
+  <div class="file_upload_show">
+    <div class="card">
+      <h1><%= @archive.name %></h1>
+
+      <%= render_file @archive.file, class:"file" %>
+      <div class="card_buttons">
+        <%= link_to 'Baixar', rails_blob_url(@archive.file), download: @archive.name, class:"button" %>
+        <%= link_to 'Editar', edit_file_upload_path(@archive), class:"button" %>
+        <%= link_to 'Voltar', file_uploads_path, class:"button" %>
+      </div>
+    </div>
+  </div>
+</div>

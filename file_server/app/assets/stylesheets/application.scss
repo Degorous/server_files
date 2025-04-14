@@ -1,0 +1,42 @@
+// Sassy
+@import 'index.scss';
+@import 'new.scss';
+@import 'edit.scss';
+@import 'show.scss';
+
+:root {
+  --font-color: white;
+  --border-color: white;
+}
+
+
+body.body {
+  background-color: black;
+  margin: 15px;
+  color: var(--font-color);
+}
+
+.nav_bar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  .logo {
+    width: 60px;
+  }
+
+  .new_upload {
+    display: flex;
+    flex-flow: row wrap;
+    text-decoration: none;
+    color: var(--font-color);
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    width: 115px;
+    height: 45px;
+    justify-content: center;
+    align-content: center;
+    margin: 15px 0px;
+  }
+}

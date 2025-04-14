@@ -1,14 +1,21 @@
-<h1> Upload de Arquivo </h1>
+<div class="container">
+  <div class="file_upload_new" >
+    <h1> Upload de Arquivo </h1>
 
-<%= form_with model: @archive, url: file_uploads_path, local: true, multipart: true do |form| %>
-  <div>
-    <%= form.label :name, "Nome do Arquivo" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.file_field :file %>
-  </div>
-  <%= form.submit "Upload" %>
-<% end %>
+    <%= form_with model: @archive, url: file_uploads_path, local: true, multipart: true do |form| %>
+      <div class="card">
+        <div class='card_label'>
+          <%= form.label :name, "Nome do Arquivo" %>
+          <%= form.text_field :name %>
+        </div>
+        <div class='card_label'>
+          <%= form.file_field :file %>
+        </div>
+        <div>
+          <%= form.submit "Upload", class:"card_submit" %>
+        </div>
+      </div>
+    <% end %>
 
-<%= link_to 'Voltar', file_uploads_path %>
+  </div>
+</div>
